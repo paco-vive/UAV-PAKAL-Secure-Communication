@@ -8,6 +8,25 @@ This repository holds **my part of the project**: the GNU Radio flowgraphs for t
 - **My role:** Signal Processing & Simulation Researcher (Aug 2025 – present)
 - **Full project folder (Drive):** https://drive.google.com/drive/folders/11FowLxH9dFnYnMrHF18VQAB3JNu8Cf3j?usp=sharing
 
+## Highlights
+
+<p align="center">
+  <img src="media/fhss_simulator.jpg" width="480" alt="FHSS simulator"><br>
+  <em>Custom frequency-hopping (FHSS) simulator in GNU Radio: the waterfall shows the carrier hopping between channels over time</em>
+</p>
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="media/spectrum_before_wavelet.jpg" width="320" alt="before wavelet"><br><em>Before: FFT spectrum, band buried in noise</em></td>
+    <td align="center"><img src="media/spectrum_after_wavelet.jpg" width="320" alt="after wavelet"><br><em>After: wavelet edge detector, band edges at ±200 kHz</em></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="media/hardware_setup.jpg" width="220" alt="Nuand BladeRF"><br>
+  <em>Hardware: Nuand BladeRF (TX) + HackRF One (RX)</em>
+</p>
+
 ## System overview
 
 ```mermaid
@@ -54,24 +73,6 @@ media/                demo video and screenshots
 | `hop_spacing` | 500 kHz | spacing between channels |
 | `pattern` | 0 | 0 = left→right staircase, 1 = right→left, 2 = pseudo-random permutation, 3 = zigzag |
 
-### FHSS simulator
-
-I built a custom frequency-hopping (FHSS) simulator in GNU Radio. The waterfall (top) shows the carrier hopping between discrete channels over time. The spectrum (bottom) shows the hop channels spread around the center frequency.
-
-![FHSS simulator](media/fhss_simulator.jpg)
-
-### Wavelet transform for spectrum analysis
-
-| Before: FFT spectrum of the received band | After: wavelet edge-detector output |
-|---|---|
-| ![before wavelet](media/spectrum_before_wavelet.jpg) | ![after wavelet](media/spectrum_after_wavelet.jpg) |
-
-On the raw spectrum (left), the occupied band (about ±200 kHz) is buried in noise. After the wavelet edge-detector stage (right), the band edges show up as two clear peaks near −200 kHz and +200 kHz, so the occupied bandwidth is easy to locate.
-
-### Hardware
-
-![Hardware setup: Nuand BladeRF](media/hardware_setup.jpg)
-
 ## Demo: over-the-air test
 
 <video src="media/bladerf_tx_hackrf_rx_demo.mp4" controls width="720"></video>
@@ -82,7 +83,7 @@ The BladeRF transmits random data (`tx config file=/dev/urandom`) at **2437 MHz*
 
 | TX off | TX on |
 |---|---|
-| ![idle](media/spectrum_idle.png) | ![tx on](media/spectrum_tx_on.png) |
+| <img src="media/spectrum_idle.png" width="320"> | <img src="media/spectrum_tx_on.png" width="320"> |
 
 ## How to run
 
