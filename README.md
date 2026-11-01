@@ -54,6 +54,24 @@ media/                demo video and screenshots
 | `hop_spacing` | 500 kHz | spacing between channels |
 | `pattern` | 0 | 0 = left→right staircase, 1 = right→left, 2 = pseudo-random permutation, 3 = zigzag |
 
+### FHSS simulator
+
+I built a custom frequency-hopping (FHSS) simulator in GNU Radio. The waterfall (top) shows the carrier hopping between discrete channels over time. The spectrum (bottom) shows the hop channels spread around the center frequency.
+
+![FHSS simulator](media/fhss_simulator.jpg)
+
+### Wavelet transform for spectrum analysis
+
+| Before: FFT spectrum of the received band | After: wavelet edge-detector output |
+|---|---|
+| ![before wavelet](media/spectrum_before_wavelet.jpg) | ![after wavelet](media/spectrum_after_wavelet.jpg) |
+
+On the raw spectrum (left), the occupied band (about ±200 kHz) is buried in noise. After the wavelet edge-detector stage (right), the band edges show up as two clear peaks near −200 kHz and +200 kHz, so the occupied bandwidth is easy to locate.
+
+### Hardware
+
+![Hardware setup: Nuand BladeRF](media/hardware_setup.jpg)
+
 ## Demo: over-the-air test
 
 <video src="media/bladerf_tx_hackrf_rx_demo.mp4" controls width="720"></video>
