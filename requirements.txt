@@ -1,0 +1,2 @@
+# GNU Radio 3.10 (instalar con el gestor de paquetes: sudo apt install gnuradio gr-osmosdr)
+numpy
